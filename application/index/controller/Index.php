@@ -1,11 +1,12 @@
 <?php
 namespace app\index\controller;
 
-class Index
+class Index extends \think\Controller
 {
     public function index()
     {
-        return view('home', ['name' => 'thinkphp']);
+        $this->assign('data', array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        return view('home');
     }
 
     public function search()
