@@ -1,11 +1,20 @@
 <?php
 namespace app\index\controller;
 
+use app\index\model\Cominfo;
+
 class Index extends \think\Controller
 {
     public function index()
     {
-        $this->assign('data', array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        //CAST(contactinfo as CHAR) as contactinfo
+        $cominfo = new Cominfo();
+        $coms    = $cominfo->where('state', 1)
+            ->limit(10)
+            ->order('id', 'desc')
+            ->field('id, hashid, startdate,comname,status ,contactinfo, address, opername, registcapi, scope')
+            ->select();
+        $this->assign('coms', $coms);
         return view('home');
     }
 

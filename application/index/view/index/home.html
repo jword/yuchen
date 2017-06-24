@@ -17,19 +17,13 @@
   <div class="navbar navbar-inverse navbar-fixed-top" id="navbar" role="banner">
     <div class="container">
       <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".zui-navbar-collapse">
-          <span class="sr-only">切换导航</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a href="/" class="navbar-brand"><span class="path-zui-36"><i class="path-1"></i><i class="path-2"></i></span> <span class="brand-title">法人堂 <i data-toggle="tooltip" id="compactTogger" data-placement="bottom" class="icon icon-home" data-original-title="" title=""></i></a>
       </div>
       <nav class="collapse navbar-collapse zui-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li id="navDownloadLink"><a title="" class="format-pkg" href="#"><i class="icon icon-user"></i><span> 会员中心</span></a></li>
-          <li><a title="" href="#" target="_blank"><i class="icon icon-comments-alt"></i><span> 登录</span></a></li>
-          <li><a href="#" target="_blank"><i class="icon icon-github"></i><span> 注册</span></a></li>
+          <li id="navDownloadLink"><a title="" class="format-pkg" href="#"><i class="icon icon-windows"></i><span> 主菜单</span></a></li>
+          <li><a href="/user/login" target="_blank"><i class="icon icon-user"></i><span> 登录</span></a></li>
+          <li><a href="/user/register" target="_blank"><i class="icon icon-circle-arrow-up"></i><span> 注册</span></a></li>
         </ul>
       </nav>
     </div>
@@ -65,42 +59,69 @@
     <div class="row">
       <div class="list list-condensed">
       <header>
-        <h3><i class="icon-list-ul"></i> 最新动态 <small>更新 123 条</small></h3>
+        <h3><i class="icon-list-ul"></i> 最新加入企业 <small></small></h3>
       </header>
       <div class="items items-hover">
-        <?php foreach ($data as $k => $v) {?>
+        <?php foreach ($coms as $k => $v) {?>
         <div class="item">
           <div class="item-heading">
-            <div class="pull-right"><a href="#"><i class="icon-chat"></i> 5 </a> &nbsp;&nbsp;<a href="#"><i class="icon-eye-open"></i> 8547 </a></div>
+            <div class="pull-right"><a href="#"><i class="icon-chat"></i> 0 </a> &nbsp;&nbsp;<a href="#"><i class="icon-eye-open"></i> <?php echo rand(10,50);?> </a></div>
             <h4>
-              <a href="###">河南斯沃琪网络科技有限公司</a>
-              <span class="label label-success">存续（在营、开业、在册）</span>
+              <a href="###"><?php echo $v->comname;?></a>
+              <span class="label label-success"><?php echo $v->status;?></span>
             </h4>
           </div>
           <div class="item-content" style="padding-top: 5px;">
-            <i class="icon-user"></i> &nbsp; <span class="text">杨志宇</span>
+            <i class="icon-user"></i> &nbsp; <span class="text"><?php echo $v->opername;?></span>
             &nbsp; &nbsp; &nbsp; &nbsp;
-            <i class="icon-yen"></i> &nbsp; <span class="text">200.000000万 </span>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <?php if(!empty($aaa)){ ?>
-            <i class="icon-time"></i> &nbsp; <span class="text">成立3年</span>
+            <?php if (!empty($v->registcapi)){ ?>
+              <i class="icon-yen"></i> &nbsp; <span class="text"><?php echo $v->registcapi;?></span>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+            <?php } ?>
+            <?php if(!empty($v->startdate) && ($year = (time()-$v->startdate)/31536000)<40){
+                    if ($year<0) {
+                      break;
+                    }elseif ($year<1) {
+                      $year = '成立1年以内';
+                    }elseif ($year<5) {
+                      $year = '成立1~5年';
+                    }elseif ($year<10) {
+                      $year = '成立5~10年';
+                    }elseif ($year<15) {
+                      $year = '成立10~15年';
+                    }else {
+                      $year = '成立15年以上';
+                    }
+              ?>
+            <i class="icon-time"></i> &nbsp; <span class="text"><?php echo $year;?></span>
             &nbsp; &nbsp; &nbsp; &nbsp;
             <?php } ?>
-            <i class="icon-phone-sign"></i> &nbsp; <span class="text">0371-66616992</span>
+            <?php $contact = json_decode($v->contactinfo,true);?>
+            <?php if (isset($contact['phonenumber']) && !empty($contact['phonenumber'])) { ?>
+            <i class="icon-phone-sign"></i> &nbsp; <span class="text"><?php echo $contact['phonenumber'];?></span>
             &nbsp; &nbsp; &nbsp; &nbsp;
-            <i class="icon-ie"></i> &nbsp; <a href="">http://www.xxx.com</a>
+            <?php }?>
+            <?php if (isset($contact['website']) && !empty($contact['website'])) { ?>
+            <i class="icon-ie"></i> &nbsp; <a href="<?php echo $contact['website'];?>"><?php echo $contact['website'];?></a>
             &nbsp; &nbsp; &nbsp; &nbsp;
-            <i class="icon-envelope"></i> &nbsp; <span class="text">yangzhiyu1991@sina.com</span>
+            <?php }?>
+            <?php if (isset($contact['email']) && !empty($contact['email'])) { ?>
+            <i class="icon-envelope"></i> &nbsp; <span class="text"><?php echo $contact['email'];?></span>
+            <?php }?>
+            <?php if (!empty($v->address)){ ?>
             <div class="text" style="padding-top: 5px;">
-              <i class="icon-map-marker"></i> &nbsp; <span class="text">郑州市管城区紫荆山路56号14层1404号</span>
+              <i class="icon-map-marker"></i> &nbsp; <span class="text"><?php echo $v->address;?></span>
             </div>
+            <?php }?>
+            <?php if (!empty($v->scope)){ ?>
             <div class="text" style="padding-top: 5px;">
               <i class="icon-list-alt"></i> &nbsp;
-              <span class="text">计算机软件开发；计算机技术咨询；企业管理咨询；财务信息咨询。</span>
+              <span class="text"><?php echo $v->scope;?></span>
             </div>
+            <?php }?>
           </div>
           <div class="item-footer">
-            <a href="#" class="text-muted"><i class="icon-comments"></i> 0</a> &nbsp; <span class="text-muted">2014年07月30日</span>
+            <a href="#" class="text-muted"><i class="icon-comments"></i> 0</a> &nbsp; <span class="text-muted"><?php echo date('Y年m月d日',$v->startdate)?></span>
           </div>
         </div>
         <?php } ?>

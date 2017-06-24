@@ -5,7 +5,7 @@ class User
 {
     public function login()
     {
-        return view('home', ['name' => 'thinkphp']);
+        return view('login');
     }
 
     public function register()
