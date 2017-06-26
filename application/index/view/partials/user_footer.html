@@ -1,0 +1,15 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/zui/1.7.0/lib/jquery/jquery.js"></script>
+    <script type="text/javascript">
+          jQuery(function () {
+            return $('input').focusin(function () {
+              return $(this).parent().addClass('fieldset-row-blue'),
+              $(this).prev().css('color', '#26BCE7')
+            }).focusout(function () {
+              return $(this).parent().removeClass('fieldset-row-blue'),
+              $(this).prev().css('color', '#95A9C3')
+            })
+          });
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zui/1.7.0/js/zui.min.js"></script>
+  </body>
+</html>

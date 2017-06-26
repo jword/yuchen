@@ -1,0 +1,166 @@
+.bare-body, .user-body {
+    min-height: 100%;
+    background-color: #f9fafb;
+    color: #545e6b;
+    display: block;
+}
+
+.bare-header {
+    background-image: none;
+    background-color: transparent;
+    padding: 60px 0 25px;
+    text-align: center;
+}
+.bare-main {
+    padding-bottom: 100px;
+    background-color: #f9fafb;
+}
+
+.authform {
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #dee0e3;
+    background-color: #FFF;
+    border-radius: 3px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.authform h1 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #a5b7cc;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.small-tagline {
+    font-size: 12px;
+    color: #a5b7cc;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.authform h1, .title {
+    text-align: center;
+    font-size: 20px;
+    color: #545e6b;
+    line-height: 30px;
+}
+a {
+    font-weight: 400;
+    color: #F1A784;
+    text-decoration: none;
+  }
+
+.authform form, .modal-body form {
+    padding: 20px;
+}
+
+.btn-panel {
+    margin: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+.btn {
+    overflow: visible;
+    margin: 5px;
+    width: 100%;
+    text-shadow: none !important;
+}
+
+.btn-main {
+    transition: background-color .15s linear,color .15s linear;
+    color: #FFF;
+    margin: 0;
+    border: 1px solid #F8B08D;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 0px;
+    background-color: #F8B08D;
+}
+
+.fieldset-row {
+    border-bottom: 1px solid #DBE2E7;
+    margin-top: 20px;
+}
+
+.fieldset-row-blue {
+    border-bottom: 1px solid #26BCE7;
+}
+
+
+.fieldset-input{
+  width: 90%;
+  padding: 10px 10px;
+  font-weight: 300;
+  font-size: 18px;
+  border: none;
+  border-radius: 0;
+  color: #394351;
+  line-height: normal;
+  margin: 0;
+}
+
+
+.btn-main:active,.btn-main:focus,.btn-main:hover {
+ color:#fff;
+ background-color:#D7855F;
+ border:1px solid #D7855F
+}
+
+
+a:hover {
+ color:#D7855F;
+ text-decoration:none
+}
+
+.icons {
+    color: #95A9C3;
+    font-weight: 700;
+    font-size: 20px;
+    #font-family: "vts-icons";
+}
+
+
+.options {
+    width: 100%;
+    margin: 10px 0;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 16px;
+}
+
+.forgot-password {
+    text-align: left;
+    float: left;
+}
+
+.remember-me {
+    margin: 0 !important;
+    float: right;
+    font-weight: 400;
+    display: block;
+}
+
+.remember-me label {
+    margin-right: 2px;
+    color: #7B90AB;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rember-checkbox{
+  margin: 0 !important;
+  position: inherit !important;
+}

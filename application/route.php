@@ -8,14 +8,16 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
+//\think\Route::get('/about', 'index/index/about');
 
 return [
     '__pattern__' => [
         'name' => '\w+',
     ],
-    '[hello]'     => [
-        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-        ':name' => ['index/hello', ['method' => 'post']],
+    '__alias__'   => [
+        'about.html' => 'index/Index/about',
+        'company'    => 'index/Index',
+        'user'       => 'index/User',
+        'news'       => 'index/News',
     ],
-
 ];

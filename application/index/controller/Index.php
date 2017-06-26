@@ -27,4 +27,9 @@ class Index extends \think\Controller
     {
         return view('detail');
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

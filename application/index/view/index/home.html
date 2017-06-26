@@ -1,64 +1,4 @@
-<!DOCTYPE html>
-<html class="screen-desktop-wide device-desktop" lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <title>专业的法人信息检索平台-法人堂</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="法人堂，法人，企业法人，工商信息查询，企业联系方式" />
-  <meta name="description" content="法人堂是一个专业的企业法人信息检索平台，致力于提供简单、可靠、真实的法人信息检索查询服务。" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/zui/1.7.0/css/zui.min.css">
-  <link href="http://zui.sexy/docs/css/doc.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body class="ad-xuanxuan" cz-shortcut-listen="true">
-<header id="header" class="bg-primary">
-  <div class="navbar navbar-inverse navbar-fixed-top" id="navbar" role="banner">
-    <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".zui-navbar-collapse">
-          <span class="sr-only">切换导航</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/" class="navbar-brand"><span class="path-zui-36"><i class="path-1"></i><i class="path-2"></i></span> <span class="brand-title">法人堂 <i data-toggle="tooltip" id="compactTogger" data-placement="bottom" class="icon icon-home" data-original-title="" title=""></i></a>
-      </div>
-      <nav class="collapse navbar-collapse zui-navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li id="navDownloadLink"><a title="" class="format-pkg" href="#"><i class="icon icon-windows"></i><span> 主菜单</span></a></li>
-          <li><a href="/user/login" target="_blank"><i class="icon icon-user"></i><span> 登录</span></a></li>
-          <li><a href="/user/register" target="_blank"><i class="icon icon-circle-arrow-up"></i><span> 注册</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div id="headContainer">
-    <div class="container">
-      <div id="heading">
-        <h1>法人堂</h1>
-        <p>致力于提供简单、可靠、真实的法人信息检索服务。</p>
-        <div id="download">
-          <a class="btn btn-primary btn-lg format-pkg" href="#">商务合作 <i class="icon icon-download-alt"></i></a>
-          <a href="#" class="btn btn-white btn-lg">快速上手 <i class="icon icon-hand-right"></i></a>
-          <p><small>简单、真实</small></p>
-        </div>
-        <p><span data-toggle="tooltip" data-html="true" >专业、可靠</span</p>
-      </div>
-      <div id="search">
-        <div id="searchForm">
-          <input class="form-control input-lg" id="searchInput" placeholder="企业名称、法人名称、联系方式" type="text">
-          <i class="icon icon-search"></i>
-          <button id="searchHelpBtn" type="button" class="btn btn-link"><i class="icon icon-question"></i></button>
-        </div>
-      </div>
-    </div>
-    <div class="text-center" id="ad">
-      <a id="mzui" class="hidden" href="/"><i class="icon icon-diamond"></i> 简单、可靠、真实的法人信息检索服务。</a>
-    </div>
-  </div>
-</header>
+<?php include APP_PATH.'index/view/partials/header.html';?>
 <!-- 内容目录 -->
 <div id="grid" class="scrollbar-hover">
   <div class="container">
@@ -71,10 +11,10 @@
         <?php foreach ($coms as $k => $v) {?>
         <div class="item">
           <div class="item-heading">
-            <div class="pull-right"><a href="#"><i class="icon-chat"></i> 0 </a> &nbsp;&nbsp;<a href="#"><i class="icon-eye-open"></i> <?php echo rand(10,50);?> </a></div>
+            <div class="pull-right"><a href="#"><i class="icon-chat"></i> 0 </a> &nbsp;&nbsp;<a href="#"><i class="icon-eye-open"></i> <?php echo 0;?> </a></div>
             <h4>
               <a href="###"><?php echo $v->comname;?></a>
-              <span class="label label-success"><?php echo $v->status;?></span>
+              <span class="label <?php echo strpos('注销', $v->status)===false?'label-success':'label-danger';?>"><?php echo $v->status;?></span>
             </h4>
           </div>
           <div class="item-content" style="padding-top: 5px;">
@@ -134,114 +74,6 @@
       </div>
     </div>
     </div>
-    <div class="row">
-      <div class="col col-md-3 col-sm-6">
-        <div class="chapter" id="chapter-learn" data-id="learn" data-accent="blue">
-          <div class="chapter-heading fade scale show in">
-            <h4><i class="icon"></i> <span class="name">友情链接</span></h4>
-          </div>
-          <div class="chapter-body" id="sections-learn">
-            <div class="card-heading">
-              <i class="icon text-icon">Y</i>
-              <h5><a class="name" href="http://www.yuchenkonggu.com/" target="_blank">易成交</a></h5>
-            </div>
-
-            <div class="card-heading" title="">
-              <i class="icon text-icon">J</i>
-              <h5><a class="name" href="http://www.jklcai.com/" target="_blank">即刻理财</a></h5>
-            </div>
-        </div>
-      </div>
-    </div>
-      <div class="col col-md-3 col-sm-6">
-        <div class="chapter" id="chapter-promotion" data-id="promotion" data-accent="purple">
-          <div class="chapter-heading fade scale show in">
-            <h4><i class="icon"></i> <span class="name">服务支持</span></h4>
-          </div>
-          <div class="chapter-body" id="sections-promotion">
-
-            <div class="card-heading">
-              <i class="icon text-icon">M</i>
-              <h5><a class="name" href="#promotion/mzui">会员服务</a></h5>
-            </div>
-
-            <div class="card-heading">
-              <i class="icon text-icon">B</i>
-              <h5><a class="name" href="#promotion/xuanxuan">商务合作</a></h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col col-md-3 col-sm-6">
-        <div class="chapter" id="chapter-resource" data-id="resource" data-accent="primary">
-          <div class="chapter-heading fade scale show in">
-            <h4><i class="icon"></i> <span class="name">数据来源</span></h4>
-          </div>
-           <div class="card-heading">
-              <i class="icon text-icon">G</i>
-              <h5><a class="name" href="http://www.gsxt.gov.cn/index.html">国家企业信用信息公示系统</a></h5>
-            </div>
-
-            <div class="card-heading">
-              <i class="icon text-icon">X</i>
-              <h5><a class="name" href="http://www.creditchina.gov.cn/">信用中国</a></h5>
-            </div>
-        </div>
-      </div>
-      <div class="col col-md-3 col-sm-6">
-        <div class="chapter" id="chapter-contribution" data-id="contribution" data-accent="red">
-          <div class="chapter-heading fade scale show in">
-            <h4><i class="icon"></i> <span class="name">关于我们</span></h4>
-          </div>
-          <div class="chapter-body" id="sections-contribution">
-
-              <div class="card-heading" title="">
-                <i class="icon text-icon"></i>
-                <h5><a class="name" href="#contribution/learn">企业简介</a></h5>
-              </div>
-              <div class="card-heading" title="">
-                <i class="icon text-icon"></i>
-                <h5><a class="name" href="#contribution/learn">联系我们</a></h5>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-
-<footer>
-
-</footer>
-<style type="text/css">
-  .copyright {
-    font-size: 13px;
-    text-align: center;
-    color: #555;
-    padding-top: 14px;
-    padding-bottom: 20px;
-    border-top: 1px solid #e5e5e5;
-}
-.copyright a{
-  font-weight: 400;
-  color: #353535;
-}
-</style>
-<div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <span>Copyright © <a class="name" href="http://www.farentang.com">法人堂</a></span> |
-                <span><a class="name" href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备16007903号-2</a></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- jQuery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/zui/1.7.0/lib/jquery/jquery.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/zui/1.7.0/js/zui.min.js"></script>
-<script src="http://zui.sexy/docs/js/doc.min.js"></script>
-</body>
-</html>
+<?php include APP_PATH.'index/view/partials/footer.html';?>

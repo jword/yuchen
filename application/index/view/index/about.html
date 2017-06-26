@@ -1,0 +1,107 @@
+<?php include APP_PATH.'index/view/partials/header.html';?>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qOPnRm2UkHWdZFGgW98jZgrHXoYkOdMe"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<div id="grid" class="scrollbar-hover">
+  <div class="container">
+<main class="container">
+    <article class="markdown-body">
+        <h2 id="bootcdn-">法人堂</h2>
+        <div class="row about-info">
+        <p>法人堂是河南斯沃琪网络科技有限公司旗下的一款企业征信产品，旨在为用户提供快速查询企业工商信息服务。目前法人堂已收录中国境内合法注册的3000万企业信息。法人堂致力于提供简单、可靠、更真实的企业信息检索查询服务。</p>
+        <blockquote><p>反馈或建议请发送邮件至：farentang@sina.com</p></blockquote>
+        </div>
+        <h2 id="-">联系我们</h2>
+        <style type="text/css">
+                #allmap {
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 0;
+                    background-color: rgb(243, 241, 236);
+                    color: rgb(0, 0, 0);
+                    text-align: left;
+                }
+                .map {
+                    #margin-top: 20px;
+                    max-width: inherit;
+                    height: 320px;
+                    #margin-left: 20px;
+                }
+                #allmap img{
+                    max-width: inherit;
+                }
+                .changde-contactus-info {
+                    margin: 20px 0px 0px 0px;
+                    #border: 1px solid #CCC;
+                    overflow: hidden;
+                }
+                .about-info {
+                    padding-top: 10px;
+                    padding-left: 20px;
+                    font-size: 15px;
+                    line-height: 25px;
+                }
+                .contact-box {
+                    margin: 0;
+                    padding-bottom: 0;
+                    color: #000000;
+                    font-size: 17px;
+                    line-height: 33px;
+                }
+                #allmap input {
+                    -webkit-box-sizing: inherit;
+                    -moz-box-sizing: inherit;
+                    box-sizing: inherit;
+                }
+            </style>
+            <div class="row changde-contactus-info">
+            <div class="col-lg-4 col-xs-4 contact-box">
+                <p><strong>河南斯沃琪网络科技有限公司</strong></p>
+                <p><i class="icon-phone-sign"></i>&nbsp; &nbsp;电话：0371-66616992</p>
+                <p><i class="icon-phone"></i>&nbsp; &nbsp;传真：0371-66616992</p>
+                <p><i class="icon-envelope-alt"></i>&nbsp; &nbsp;邮箱：farentang@sina.com</p>
+                <p><i class="icon-ie"></i>&nbsp; &nbsp;官网：http://www.yuchenkonggu.com/</p>
+                <p><i class="icon icon-map-marker"></i>&nbsp; &nbsp;公司地址：郑州市管城区紫荆山路56号14层1404号</p>
+            </div>
+            <div id="allmap" class="col-lg-8 col-xs-8 map"></div>
+        </div>
+    </article>
+</main>
+</div>
+</div>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var sContent = "郑州市管城区紫荆山路56号14层1404号";
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    // 添加带有定位的导航控件
+    var navigationControl = new BMap.NavigationControl({
+        // 靠左上角位置
+        anchor: BMAP_ANCHOR_TOP_LEFT,
+        // LARGE类型
+        type: BMAP_NAVIGATION_CONTROL_LARGE,
+        // 启用显示定位
+        enableGeolocation: true
+      });
+      map.addControl(navigationControl);
+
+    // 创建地址解析器实例
+    var myGeo = new BMap.Geocoder();
+    // 将地址解析结果显示在地图上,并调整地图视野
+    myGeo.getPoint(sContent, function(point){
+            map.centerAndZoom(point, 16);
+            map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+            map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+            var marker = new BMap.Marker(point);  // 创建标注
+            marker.enableDragging(); //marker可拖拽
+            var infoWindow = new BMap.InfoWindow('<span style="color:#CC5623;">河南斯沃琪网络科技有限公司</span><br>地址：'+sContent);  // 创建信息窗口对象
+            marker.addEventListener("click", function(e){
+                map.openInfoWindow(infoWindow,point); //开启信息窗口
+            })
+            map.openInfoWindow(infoWindow,point); //开启信息窗口
+            map.addOverlay(marker);               // 将标注添加到地图中
+    }, "河南省");
+</script>
+<?php include APP_PATH.'index/view/partials/footer.html';?>
+

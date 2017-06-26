@@ -1,0 +1,31 @@
+<?php include APP_PATH.'index/view/partials/user_header.html';?>
+<main class="bare-main">
+  <div class="authform">
+    <h1>注册法人堂账号</h1>
+    <div class="subtitle text-center">
+      已经有账号？ <a href="/user/login">立即登录</a>
+    </div>
+
+    <form action="/user/login" method="post">
+      <div class="form-group fieldset-row" id="username_container">
+        <i class="icons icon-user" style="color: rgb(149, 169, 195);" for="username"></i>
+        <input class="fieldset-input" id="username" name="username" type="text" placeholder="用户名">
+      </div>
+
+      <div class="form-group fieldset-row" id="password_container">
+        <i class="icons icon-lock" style="color: rgb(149, 169, 195);" for="password"></i>
+        <input class="fieldset-input" id="password" name="password" type="password" placeholder="密码">
+      </div>
+
+      <div class="form-group fieldset-row" id="email_container">
+        <i class="icons icon-envelope-alt" style="color: rgb(149, 169, 195);" for="email"></i>
+        <input class="fieldset-input" id="email" name="email" type="password" placeholder="邮箱">
+      </div>
+
+      <div class="btn-panel">
+        <button class="btn btn-main" type="submit">注 册</button>
+      </div>
+    </form>
+  </div>
+</main>
+<?php include APP_PATH.'index/view/partials/user_footer.html';?>
