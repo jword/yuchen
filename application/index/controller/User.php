@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
 
-class User
+class User extends \think\Controller
 {
     public function login()
     {
