@@ -1,7 +1,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/zui/1.7.0/lib/jquery/jquery.js"></script>
     <script type="text/javascript">
           jQuery(function () {
-            return $('input').focusin(function () {
+            return $('.fieldset-input').focusin(function () {
               return $(this).parent().addClass('fieldset-row-blue'),
               $(this).prev().css('color', '#26BCE7')
             }).focusout(function () {
