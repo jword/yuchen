@@ -12,7 +12,7 @@ class Index extends \think\Controller
         $coms    = $cominfo->where('state', 1)
             ->limit(10)
             ->order('id', 'desc')
-            ->field('id, hashid, startdate,comname,status ,contactinfo, address, opername, registcapi, scope')
+            ->field('id, hashid, startdate,comname,status ,CAST(contactinfo as CHAR) as contactinfo, address, opername, registcapi, scope')
             ->select();
         $this->assign('coms', $coms);
         return view('home');

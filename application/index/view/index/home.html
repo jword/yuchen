@@ -13,7 +13,7 @@
           <div class="item-heading">
             <div class="pull-right"><a href="#"><i class="icon-chat"></i> 0 </a> &nbsp;&nbsp;<a href="#"><i class="icon-eye-open"></i> <?php echo 0;?> </a></div>
             <h4>
-              <a href="/company/detail?id=<?php echo $v->hashid;?>"><?php echo $v->comname;?></a>
+              <a href="/company/detail/<?php echo $v->hashid;?>"><?php echo $v->comname;?></a>
               <span class="label <?php echo strpos('注销', $v->status)===false?'label-success':'label-danger';?>"><?php echo $v->status;?></span>
             </h4>
           </div>

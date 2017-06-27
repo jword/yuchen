@@ -9,7 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 \think\Route::get('/about', 'index/index/about');
-
+\Think\Route::get('company/detail/:id', 'index/Index/detail', [], ['id' => '\w+']);
 return [
     '__pattern__' => [
         'name' => '\w+',
