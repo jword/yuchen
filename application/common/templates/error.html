@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+  <?php if ($exception instanceof HttpException) {
+            $statusCode = $exception->getStatusCode();
+        }else{
+          $statusCode = 500;
+        }?>
+  <title><?php echo $message;?> (<?php echo $statusCode;?>)</title>
+  <style>
+    body {
+      color: #666;
+      text-align: center;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: auto;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 100px;
+      font-weight: normal;
+      color: #456;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #666;
+      line-height: 1.5em;
+    }
+
+    h3 {
+      color: #456;
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 28px;
+    }
+
+    hr {
+      max-width: 800px;
+      margin: 18px auto;
+      border: 0;
+      border-top: 1px solid #EEE;
+      border-bottom: 1px solid white;
+    }
+
+    img {
+      max-width: 40vw;
+    }
+
+    .container {
+      margin: auto 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>
+    <div>
+      <img src="/static/images/steer.png" alt="法人堂">
+    </div>
+    <?php echo $statusCode;?>
+  </h1>
+  <div class="container">
+    <h3><?php echo $data['message']?></h3>
+    <p>请确保你输入的url地址是正确的.<a href="/">返回首页</a></p>
+    <hr />
+    <p>如果你确定这是一个错误，请<a href="#">点击此处</a>向我们反馈.</p>
+  </div>
+</body>
+</html>

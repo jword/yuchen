@@ -1,0 +1,778 @@
+<?php include APP_PATH.'index/view/partials/header.html';?>
+  <div id="grid" class="scrollbar-hover">
+    <div class="container">
+      <div id="pageAttrs" class="clearfix" style="display: block;">
+        <div class="badge badge-zui" style="" data-toggle="tooltip" title="" data-original-title="此组件在标准版中提供">ZUI</div>
+        <div class="badge badge-lite" style="" data-toggle="tooltip" title="" data-original-title="此组件在简洁版中提供">LITE</div>
+        <div class="badge badge-lib" style="display: none" data-toggle="tooltip" title="" data-original-title="此组件在lib目录中单独提供">LIB</div>
+        <a class="badge badge-party" style="display: none" data-toggle="tooltip" title="" target="_blank" data-original-title="这是第三方组件，点击访问网站" href="javascript:;"><i class="icon icon-heart"></i> <span class="product-ver"></span></a>
+        <a class="badge badge-bootstrap" style="" data-toggle="tooltip" title="" target="_blank" href="http://getbootstrap.com/" data-original-title="该组件最初来源于 Bootstrap，点击访问 Bootstrap 网站">B</a>
+        <div class="badge badge-custom" style="" data-toggle="tooltip" title="" data-original-title="此组件可以拆分使用"><i class="icon icon-cogs"></i></div>
+        <div class="badge badge-version" style="" data-toggle="tooltip" title="" data-original-title="此组件的最早提供版本">1.0.0+</div>
+        <div class="badge badge-author hidden" data-toggle="tooltip" title="" data-original-title="本文档作者" style="display: none;"><i class="icon icon-user"></i> <span class="author-name">Catouse</span></div>
+
+        <a href="https://github.com/easysoft/zui/tree/master/docs/part/component-nav.md" target="_blank" class="badge badge-source pull-right" data-toggle="tooltip" title="" data-original-title="访问文档源码，Fork项目来完善文档"><i class="icon icon-pencil"></i></a>
+        <div class="dropdown pull-right badge-code-dropdown">
+          <button type="button" data-toggle="dropdown" title="查看源码和打包信息" class="badge btn btn-link badge-code" data-type="has-source-bundles"><span class="badge-code-source"><i class="icon icon-file-code"></i> <span class="count">2</span></span><span class="badge-code-pkgs"><i class="icon icon-cube"></i> <span class="count">2</span></span></button>
+          <ul class="dropdown-menu"><li class="dropdown-header primary-header" data-type="source"><i class="icon icon-file-code"></i>  源码 2</li><li class="dropdown-header">LESS</li><li><a target="_blank" href="https://github.com/easysoft/zui/blob/v1.7.0/src/less/components/navs.less">src/less/components/navs.less</a></li><li><a target="_blank" href="https://github.com/easysoft/zui/blob/v1.7.0/src/less/components/navs.tabs.less">src/less/components/navs.tabs.less</a></li><li class="dropdown-header primary-header" data-type="bundles"><i class="icon icon-cube"></i> 打包</li><li class="dropdown-header">标准版</li><li><a target="_blank" href="https://github.com/easysoft/zui/blob/v1.7.0/dist/css/zui.css">dist/css/zui.css</a></li><li class="dropdown-header">简洁版</li><li><a target="_blank" href="https://github.com/easysoft/zui/blob/v1.7.0/dist/css/zui.lite.css">dist/css/zui.lite.css</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="loader" id="pageLoader"><i class="icon icon-spin icon-spinner-indicator"></i> <span class="loading-text">加载中...</span><span class="error-text">加载失败，请检查网络重试。<br>另一个导致无法加载文档的原因可能是该文档尚未完成。<br>欢迎你在 <a href="https://github.com/easysoft/zui">Github</a> 上 <a href="https://github.com/easysoft/zui/fork">Fork</a> 项目来完善文档。</span></div>
+    <div class="container">
+      <div id="pageContent">
+
+
+
+
+
+<section><header><h3>主要导航</h3></header><article><p><code>.nav-primary</code></p><div class="example">
+  <ul class="nav nav-primary">
+    <li class="active"><a href="###">首页</a></li>
+    <li class=""><a href="###">动态 <span class="label label-badge label-success">4</span></a></li>
+    <li class=""><a href="###">项目 </a></li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="###">任务</a></li>
+        <li><a href="###">bug</a></li>
+        <li><a href="###">需求</a></li>
+        <li><a href="###">用例</a></li>
+      </ul>
+    </li>
+  </ul>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559186236001"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-primary"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">项目 </span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;</span><span class="pln">
+    </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"dropdown-toggle"</span><span class="pln"> </span><span class="atn">data-toggle</span><span class="pun">=</span><span class="atv">"dropdown"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">更多 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"caret"</span><span class="tag">&gt;&lt;/span&gt;&lt;/a&gt;</span><span class="pln">
+    </span><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"dropdown-menu"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">任务</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+      </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">bug</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+      </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">需求</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+      </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">用例</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/ul&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/li&gt;</span><span class="pln">
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+
+<section class=""><header><h3>次要导航</h3></header><article><p>通常与主导航一起使用</p><p><code>.nav-secondary</code></p><div class="example">
+  <ul class="nav nav-secondary">
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="">
+      <a href="###">动态</a>
+    </li>
+    <li class="active">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559199246002"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-secondary"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+<section><header><h3>标签页导航</h3></header><article><p><code>.nav-tabs</code></p><div class="example">
+  <ul class="nav nav-tabs">
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="">
+      <a href="###">动态</a>
+    </li>
+    <li class="active">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559203881003"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-tabs"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+<section><header><h3>圆点导航</h3></header><article><p><code>.nav-pills</code></p><div class="example">
+  <ul class="nav nav-pills">
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="">
+      <a href="###">动态</a>
+    </li>
+    <li class="active">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559206306004"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-pills"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+<section><header><h3>禁用的导航链接</h3></header><article><p>在禁用的项目上添加<code>.disabled</code></p><div class="example">
+  <ul class="nav nav-primary">
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="">
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li class="active">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-tabs">
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="active">
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-pills">
+    <li class="active">
+      <a href="###">首页</a>
+    </li>
+    <li>
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-secondary">
+    <li class="active">
+      <a href="###">首页</a>
+    </li>
+    <li>
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559211215005"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-primary"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"disabled"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">disabled</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+
+
+
+<section><header><h3>垂直排列</h3></header><article><p><code>.nav-stacked</code></p><div class="example">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-primary nav-stacked">
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="nav nav-stacked nav-tabs">
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="nav nav-secondary nav-stacked">
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="nav nav-stacked nav-pills">
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559352115007"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-primary nav-stacked"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559434642008"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-tabs nav-stacked"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre><pre class="prettyprint prettyprinted" style=""><code class="lang-html"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-secondary nav-stacked"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre><pre class="prettyprint prettyprinted" style=""><code class="lang-html"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-pills nav-stacked"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+
+<section><header><h3>自适应宽度</h3></header><article><p>自适应宽度不能与垂直排列同时使用</p><p><code>.nav-justified</code></p><div class="example">
+  <ul class="nav nav-primary nav-justified">
+    <li class="">
+      <a href="###">首页 </a>
+    </li>
+    <li class="active">
+      <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+    </li>
+    <li class="">
+      <a href="###">项目 </a>
+    </li>
+    <li class="">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-justified nav-tabs">
+    <li class="active">
+      <a href="###">首页 </a>
+    </li>
+    <li class="">
+      <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+    </li>
+    <li class="">
+      <a href="###">项目 </a>
+    </li>
+    <li class="">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-secondary nav-justified">
+    <li class="">
+      <a href="###">首页 </a>
+    </li>
+    <li class="active">
+      <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+    </li>
+    <li class="">
+      <a href="###">项目 </a>
+    </li>
+    <li class="">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-justified nav-pills">
+    <li class="active">
+      <a href="###">首页 </a>
+    </li>
+    <li>
+      <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+    </li>
+    <li>
+      <a href="###">项目 </a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html" id="code-1498559232371006"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-primary nav-justified"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/noce/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre></article></section>
+
+
+
+
+
+<script>
+function afterPageLoad() {
+    $('#pageContent').on('click', '.nav > li:not(.disabled) > a', function() {
+        var $item = $(this).parent('li');
+        $item.parent().children('.active').removeClass('active');
+        $item.addClass('active');
+    });
+}
+</script><section><header><h3>带标题的导航</h3></header><article><div class="example">
+  <ul class="nav nav-tabs">
+    <li class="nav-heading">这是标题</li>
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="active">
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-pills">
+    <li class="nav-heading">这是标题</li>
+    <li class="active">
+      <a href="###">首页</a>
+    </li>
+    <li>
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <ul class="nav nav-secondary">
+    <li class="nav-heading">This is heading</li>
+    <li class="">
+      <a href="###">首页</a>
+    </li>
+    <li class="active">
+      <a href="###">动态</a>
+    </li>
+    <li class="disabled">
+      <a href="###">项目</a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="">任务</a>
+        </li>
+        <li>
+          <a href="">Bug</a>
+        </li>
+        <li>
+          <a href="">需求</a>
+        </li>
+        <li>
+          <a href="">用例</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <ul class="nav nav-primary nav-stacked">
+        <li class="nav-heading">这是标题</li>
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <ul class="nav nav-secondary nav-stacked">
+        <li class="nav-heading">THIS IS HEADINGS</li>
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <ul class="nav nav-stacked nav-pills">
+        <li class="nav-heading">THIS IS HEADINGS</li>
+        <li class="active">
+          <a href="###">首页 </a>
+        </li>
+        <li>
+          <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+        </li>
+        <li>
+          <a href="###">项目 </a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="">任务</a>
+            </li>
+            <li>
+              <a href="">Bug</a>
+            </li>
+            <li>
+              <a href="">需求</a>
+            </li>
+            <li>
+              <a href="">用例</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div><pre class="prettyprint prettyprinted" style=""><code class="lang-html"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav nav-stacked"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav-heading"</span><span class="tag">&gt;</span><span class="pln">这是标题</span><span class="tag">&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"active"</span><span class="tag">&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">首页</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"your/nice/url"</span><span class="tag">&gt;</span><span class="pln">动态 </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"label label-badge label-success"</span><span class="tag">&gt;</span><span class="pln">4</span><span class="tag">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="pln">
+  ...
+</span><span class="tag">&lt;/ul&gt;</span></code></pre><div class="alert">示例中当点击导航条目并应用高亮样式的效果是为演示方便有意添加的，并非导航自身交互功能。你仍然可以手动为导航 <code>.nav</code> 中的 <code>li</code> 添加 <code>.active</code> CLASS 来启用或移除高亮样式效果。</div></article></section></div>
+      <nav></nav>
+    </div>
+<?php include APP_PATH.'index/view/partials/footer.html';?>

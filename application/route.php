@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-//\think\Route::get('/about', 'index/index/about');
+\think\Route::get('/about', 'index/index/about');
 
 return [
     '__pattern__' => [
