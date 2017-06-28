@@ -19,3 +19,6 @@ $path = APP_PATH . 'config' . DS . APP_ENV . DS;
 $config = Config::load($path . 'config' . CONF_EXT);
 // 读取数据库配置文件
 Config::load($path . 'database' . CONF_EXT, 'database');
+
+//注册命名空间
+//\think\Loader::addNamespace('library', ROOT_PATH . 'library/');

@@ -63,9 +63,11 @@
       </div>
       <div id="search">
         <div id="searchForm">
-          <input class="form-control input-lg" id="searchInput" placeholder="企业名称、法人名称、联系方式" type="text" autocomplete="off">
+        <form action="/index/index/search" method="get">
+          <input class="form-control input-lg" id="searchInput" name="keyword" placeholder="企业名称、法人名称、联系方式" type="text" autocomplete="off">
           <i class="icon icon-search"></i>
-          <button id="searchHelpBtn" type="button" class="btn btn-link"><i class="icon icon-question"></i></button>
+          <button id="searchHelpBtn" type="submit" class="btn btn-link"><i class="icon icon-question"></i></button>
+        </form>
         </div>
       </div>
     </div>
