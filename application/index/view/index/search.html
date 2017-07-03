@@ -5,16 +5,27 @@
     <div class="row">
       <div class="list list-condensed">
       <header>
-        <h3><i class="icon-list-ul"></i> 搜索结果 <small></small></h3>
+        <h3><i class="icon-list-ul"></i> 共搜索到 <span class="text-danger"><?php echo $list->total();?> </span>条 <span class="text-danger"><?php echo htmlspecialchars($keyword);?> </span>相关信息</h3>
       </header>
       <div class="items items-hover">
+      <?php if ($list->total() > 0) {?>
         <?php foreach ($list as $k => $v) {?>
         <div class="item">
           <div class="item-heading">
             <div class="pull-right"><a href="#"><i class="icon-chat"></i> 0 </a> &nbsp;&nbsp;<a href="#"><i class="icon-eye-open"></i> <?php echo 0;?> </a></div>
             <h4>
               <a href="/company/detail/<?php echo $v->hashid;?>"><?php echo $v->comname;?></a>
-              <span class="label <?php echo strpos('注销', $v->status)===false?'label-success':'label-danger';?>"><?php echo $v->status;?></span>
+              <?php if (empty($v->status)) {
+                  $label = 'label-warning';
+                  $v->status = '未知';
+              }elseif (strpos($v->status,'注销')!==false) {
+                  $label = 'label-warning';
+              }elseif (strpos($v->status,'吊销')!==false) {
+                  $label = 'label-danger';
+              }else{
+                  $label = 'label-success';
+              }?>
+              <span class="label <?php echo $label;?>"><?php echo $v->status;?></span>
             </h4>
           </div>
           <div class="item-content" style="padding-top: 5px;">
@@ -72,6 +83,13 @@
         </div>
         <?php } ?>
         <?php echo $list->render();?>
+        <?php }else{?>
+          <div class="item">
+            <div class="item-content text-center" style="padding: 15px 0;">
+                  暂未查询到 <span class="text-danger"><?php echo htmlspecialchars($keyword);?> </span> 相关信息,建议您使用更详细的关键词进行搜索
+            </div>
+          </div>
+        <?php }?>
       </div>
     </div>
     </div>

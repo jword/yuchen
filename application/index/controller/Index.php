@@ -30,16 +30,26 @@ class Index extends \think\Controller
             $field = 'id, hashid, startdate,comname,status ,CAST(contactinfo as CHAR) as contactinfo, address, opername, registcapi, scope';
         }
         $keyword = request()->param('keyword');
-        $keyword = '北京中慧';
+        $query   = ['query' => ['keyword' => $keyword]];
         // 查询状态为1的用户数据 并且每页显示10条数据
-        $list = Cominfo::where('state', 1)->whereLike('comname', $keyword . '%')->field($field)->paginate(10);
+        $list = Cominfo::whereLike('comname', $keyword . '%')->field($field)->paginate(10, false, $query);
         // 模板变量赋值
+        $this->assign('keyword', $keyword);
         $this->assign('list', $list);
         return $this->fetch();
     }
 
     public function detail()
     {
+        $hashid = request()->param('hashid');
+        //获取企业数据
+        $cominfo = new Cominfo();
+        $company = $cominfo->where('hashid', $hashid)->find();
+        //获取联系方式信息
+        $contact = new Contact();
+        $contact = $contact->where('comname', $company->comname)->find();
+        $this->assign('company', $company);
+        $this->assign('contact', $contact);
         return view('detail');
     }
 
