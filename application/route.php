@@ -11,4 +11,8 @@
 return [
     '/company/detail/:hashid' => ['index/Index/detail', 'get', ['ext' => 'html']],
     'about'                   => ['index/index/about', 'get', ['ext' => 'html']],
+    '__alias__'               => [
+        'user' => 'index/User',
+        'news' => 'index/News',
+    ],
 ];
