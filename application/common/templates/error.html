@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
-  <?php if ($exception instanceof HttpException) {
+  <?php if ($exception instanceof \think\exception\HttpException) {
             $statusCode = $exception->getStatusCode();
         }else{
           $statusCode = 500;

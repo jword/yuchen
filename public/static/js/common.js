@@ -3,7 +3,7 @@
  * http://farentang.com
  * Copyright (c) 2017 farentang.com; Licensed farentang
  */
-var gSearch = {
+/*var gSearch = {
   init: function () {
     document.getElementById("newtab-search-submit")
             .addEventListener("click", e => this._contentSearchController.search(e));
@@ -12,3 +12,11 @@ var gSearch = {
       new ContentSearchUIController(textbox, textbox.parentNode, "newtab", "newtab");
   },
 };
+
+<script type="text/javascript">
+    $('#navtabs').on('click', '.nav > li:not(.disabled) > a', function() {
+        var $item = $(this).parent('li');
+        $item.parent().children('.active').removeClass('active');
+        $item.addClass('active');
+    });
+</script> */

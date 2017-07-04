@@ -2,50 +2,137 @@
 
   <div id="grid" class="scrollbar-hover">
     <div class="container">
-      <div class="row" id="navtab">
-        <section>
-        <header><h3>自适应宽度</h3></header>
-        <article>
-          <div class="example">
-            <ul class="nav nav-secondary nav-justified">
-              <li class="">
-                <a href="###">首页 </a>
-              </li>
-              <li class="active">
-                <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
-              </li>
-              <li class="">
-                <a href="###">项目 </a>
-              </li>
-              <li class="">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="">任务</a>
-                  </li>
-                  <li>
-                    <a href="">Bug</a>
-                  </li>
-                  <li>
-                    <a href="">需求</a>
-                  </li>
-                  <li>
-                    <a href="">用例</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </article>
-        </section>
+      <div class="row">
+        <div class="example">
+          <article class="article">
+              <header contenteditable="false">
+              <?php if (empty($company->status)) {
+                  $label = 'label-warning';
+                  $company->status = '经营状态未知';
+              }elseif (strpos($company->status,'注销')!==false) {
+                  $label = 'label-warning';
+              }elseif (strpos($company->status,'吊销')!==false) {
+                  $label = 'label-danger';
+              }else{
+                  $label = 'label-success';
+              }?>
+              <h1><?php echo $company->comname;?> <span class="label <?php echo $label;?>" style="font-size: 14px;"><?php echo $company->status;?></span></h1>
+              <dl class="dl-inline">
+                <dt>法定代表人：</dt>
+                <dd><?php echo $company->opername;?></dd>
+                <dt>成立时间：</dt>
+                <?php
+                if(!empty($company->startdate) && ($year = (time()-$company->startdate)/31536000)<40){
+                    if ($year<0) {
+                      break;
+                    }elseif ($year<1) {
+                      $year = '成立1年以内';
+                    }elseif ($year<5) {
+                      $year = '成立1~5年';
+                    }elseif ($year<10) {
+                      $year = '成立5~10年';
+                    }elseif ($year<15) {
+                      $year = '成立10~15年';
+                    }else {
+                      $year = '成立15年以上';
+                    }
+                  }
+              ?>
+                <dd><?php echo $year;?></dd>
+                <dt><br></dt>
+                <dd class="pull-right"> <span class="label <?php echo $label;?>"><?php echo $company->status;?></span> <span class="label label-info"><?php echo $company->econkind;?></span> <span class="label label-danger"><i class="icon-eye-open"></i> 235</span></dd>
+              </dl>
+              <section class="abstract">
+                <p><strong>经营范围：</strong><?php echo $company->scope;?></p>
+                <p></p>
+              </section>
+            </header>
+              <ul class="nav nav-secondary nav-justified">
+                <li class="active">
+                  <a href="###" data-target="#tab-buiness" data-toggle="tab">工商信息 </a>
+                </li>
+                <li class="">
+                  <a href="###" data-target="#tab-credit" data-toggle="tab">信用信息 <!-- <span class="label label-badge label-success pull-right">4</span> --></a>
+                </li>
+                <li class="">
+                  <a href="###" data-target="#tab-card" data-toggle="tab">名片夹 </a>
+                </li>
+                <li class="">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">企业年报</a>
+                    </li>
+                    <li>
+                      <a href="#">企业新闻</a>
+                    </li>
+                    <li>
+                      <a href="#">知识产权</a>
+                    </li>
+                    <li>
+                      <a href="#">经营信息</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            <div class="tab-content content">
+              <div class="tab-pane fade active in" id="tab-buiness">
+                <div class="panel">
+                  <div class="panel-heading">
+                    基本信息
+                  </div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-2 text-right">注册号/社会统一信用代码:</div>
+                      <div class="col-md-4 text-left"><?php echo $company->creditno?$company->creditno:$company->regno;?></div>
+                      <div class="col-md-2 text-right">法人代表:</div>
+                      <div class="col-md-4 text-left"><?php echo $company->opername;?></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 text-right">经营状态:</div>
+                      <div class="col-md-4 text-left"><?php echo $company->status;?></div>
+                      <div class="col-md-2 text-right">公司类型:</div>
+                      <div class="col-md-4 text-left"><?php echo $company->econkind;?></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 text-right">注册资本:</div>
+                      <div class="col-md-4 text-left"><?php echo $company->registcapi;?></div>
+                      <div class="col-md-2 text-right">营业期限:</div>
+                      <div class="col-md-4 text-left"><?php
+                      $start = $company->termstart?date('Y-m-d',$company->termstart).' -- ':'';
+                      $end = $start && $company->termend?date('Y-m-d',$company->termend):' ';
+                      echo $start.$end;?></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 text-right">登记机关:</div>
+                      <div class="col-md-8 text-left"><?php echo $company->belongorg;?></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 text-right">企业地址:</div>
+                      <div class="col-md-8 text-left"><?php echo $company->address;?></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 text-right">经营范围:</div>
+                      <div class="col-md-8 text-left"><?php echo $company->scope;?></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab-credit">
+                <p>暂无内容</p>
+              </div>
+              <div class="tab-pane fade" id="tab-card">
+                <p>暂无内容</p>
+              </div>
+            </div>
+            <section class="content" contenteditable="false">
+
+            </section>
+          </article>
+        </div>
+
+
     </div>
   </div>
 </div>
 <?php include APP_PATH.'index/view/partials/footer.html';?>
-<script type="text/javascript">
-    $('#navtab').on('click', '.nav > li:not(.disabled) > a', function() {
-        var $item = $(this).parent('li');
-        $item.parent().children('.active').removeClass('active');
-        $item.addClass('active');
-    });
-</script>

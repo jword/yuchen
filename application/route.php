@@ -8,16 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-\think\Route::get('/about', 'index/index/about');
-\Think\Route::get('company/detail/:hashid', 'index/Index/detail', [], ['hashid' => '\w+']);
 return [
-    '__pattern__' => [
-        'name' => '\w+',
-    ],
-    '__alias__'   => [
-        'about.html' => 'index/Index/about',
-        'company'    => 'index/Index',
-        'user'       => 'index/User',
-        'news'       => 'index/News',
-    ],
+    '/company/detail/:hashid' => ['index/Index/detail', 'get', ['ext' => 'html']],
+    'about'                   => ['index/index/about', 'get', ['ext' => 'html']],
 ];
