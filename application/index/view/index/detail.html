@@ -55,7 +55,21 @@
                   <a href="###" data-target="#tab-credit" data-toggle="tab">信用信息 <!-- <span class="label label-badge label-success pull-right">4</span> --></a>
                 </li>
                 <li class="">
-                  <a href="###" data-target="#tab-card" data-toggle="tab">名片夹 </a>
+                    <?php $out = $cards = []; if ($contact) {
+                            $contacts = json_decode($contact->contacts,true);
+                            foreach ($contacts as $v) {
+                              $v = array_filter($v);
+                              unset($v['source'],$v['state']);
+                              $hash = md5(json_encode($v));
+                              if (count($v) < 2 || isset($out[$hash])) {
+                                continue;
+                              }
+                              $out[$hash] = 1;
+                              $cards[] = $v;
+                            }
+                          }
+                    ?>
+                  <a href="###" data-target="#tab-card" data-toggle="tab">名片夹 <span class="label label-badge label-success pull-right"><?php echo count($cards);?></span></a>
                 </li>
                 <li class="">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="###">更多 <span class="caret"></span></a>
@@ -77,13 +91,15 @@
               </ul>
             <div class="tab-content content">
               <div class="tab-pane fade active in" id="tab-buiness">
-                <div class="panel">
+
+                <div class="panel  panel-primary">
                   <div class="panel-heading">
-                    基本信息
+                  <i class="icon icon-list-alt" style="color:#fff;"></i>
+                    &nbsp; 营业执照信息
                   </div>
                   <div class="panel-body">
                     <div class="row">
-                      <div class="col-md-2 text-right">注册号/社会统一信用代码:</div>
+                      <div class="col-md-2 text-right">注册号/统一社会信用代码:</div>
                       <div class="col-md-4 text-left"><?php echo $company->creditno?$company->creditno:$company->regno;?></div>
                       <div class="col-md-2 text-right">法人代表:</div>
                       <div class="col-md-4 text-left"><?php echo $company->opername;?></div>
@@ -117,17 +133,54 @@
                     </div>
                   </div>
                 </div>
+
+
               </div>
               <div class="tab-pane fade" id="tab-credit">
                 <p>暂无内容</p>
               </div>
               <div class="tab-pane fade" id="tab-card">
-                <p>暂无内容</p>
+                <div class="example-cards example">
+                  <div class="cards cards-borderless">
+                    <?php if ($cards) {
+                            foreach ($cards as $v) {
+                    ?>
+                    <div class="col-md-4 col-sm-6 col-lg-3" style="margin-bottom: 25px;">
+                      <div class="card item">
+                        <?php if (isset($v['contact']) && !empty($v['contact'])) {?>
+                        <p><i class="icon-user icon-gray"></i> &nbsp; <span class="text"><?php echo $v['contact'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['depart']) || isset($v['position'])) {?>
+                        <p><i class="icon-tag icon-gray"></i> &nbsp; <span class="text"><?php echo $v['depart'].' '.$v['position'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['mobile']) && !empty($v['mobile'])) {?>
+                        <p><i class="icon-mobile icon-gray"></i> &nbsp; <span class="text"><?php echo $v['mobile'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['tel']) && !empty($v['tel'])) {?>
+                        <p><i class="icon-phone-sign icon-gray"></i> &nbsp; <span class="text"><?php echo $v['tel'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['email']) && !empty($v['email'])) {?>
+                        <p><i class="icon-envelope icon-gray"></i> &nbsp; <span class="text"><?php echo $v['email'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['qq']) && !empty($v['qq'])) {?>
+                        <p><i class="icon-qq icon-gray"></i> &nbsp; <a href="<?php echo $v['qq'];?>"><?php echo $v['qq'];?></a></p>
+                        <?php }?>
+                        <?php if (isset($v['address']) && !empty($v['address'])) {?>
+                        <p><i class="icon-map-marker icon-gray"></i> &nbsp; <span class="text"><?php echo $v['address'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['website']) && !empty($v['website'])) {?>
+                        <p><i class="icon-ie icon-gray"></i> &nbsp; <a href="<?php echo $v['website'];?>"><?php echo $v['website'];?></a></p>
+                        <?php }?>
+                      </div>
+                    </div>
+                    <?php }}else{ ?>
+
+                    <?php } ?>
+                  </div>
+                </div>
+
               </div>
             </div>
-            <section class="content" contenteditable="false">
-
-            </section>
           </article>
         </div>
 

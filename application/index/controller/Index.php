@@ -48,9 +48,10 @@ class Index extends \think\Controller
     {
         $hashid = request()->param('hashid');
         if (APP_ENV == 'product') {
-            $field = '*';
+            $field = $cfiled = '*';
         } else {
-            $field = 'id, hashid, creditno,regno,econkind,termstart,termend,belongorg,startdate,comname,status ,CAST(contactinfo as CHAR) as contactinfo, address, opername, registcapi, scope';
+            $cfiled = 'comname,CAST(contacts as CHAR) as contacts';
+            $field  = 'id, hashid, creditno,regno,econkind,termstart,termend,belongorg,startdate,comname,status ,CAST(contactinfo as CHAR) as contactinfo, address, opername, registcapi, scope';
         }
         //获取企业数据
         $company = Cominfo::where('hashid', $hashid)->field($field)->find();
@@ -59,7 +60,7 @@ class Index extends \think\Controller
         }
         //获取联系方式信息
         $contact = new Contact();
-        $contact = $contact->where('comname', $company->comname)->field('comname,CAST(contacts as CHAR)')->find();
+        $contact = $contact->where('comname', $company->comname)->field($cfiled)->find();
         $this->assign('company', $company);
         $this->assign('contact', $contact);
         return view('detail');
