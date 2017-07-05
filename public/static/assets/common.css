@@ -63,3 +63,38 @@ li.active{
     border-radius: 4px;
     height: 230px;
 }
+
+.icon-bang-lg {
+    display: inline-block;
+    margin-right: 15px;
+    width: 5px;
+    height: 19px;
+    position: relative;
+    top: 3px;
+}
+
+.panel-head {
+    padding: 0 19px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.title-lg {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.title-sub {
+    font-weight: normal;
+    font-size: 14px;
+    color: #999;
+}
+
+.text-strong {
+    color: #444;
+    font-weight: bold;
+}
+
+.manager-info th {
+    background-color: #f5f6fa;
+}

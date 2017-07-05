@@ -49,14 +49,17 @@
             </header>
               <ul class="nav nav-secondary nav-justified">
                 <li class="active">
-                  <a href="###" data-target="#tab-buiness" data-toggle="tab">工商信息 </a>
+                  <a href="#" data-target="#tab-buiness" data-toggle="tab">工商信息 </a>
                 </li>
                 <li class="">
-                  <a href="###" data-target="#tab-credit" data-toggle="tab">信用信息 <!-- <span class="label label-badge label-success pull-right">4</span> --></a>
+                  <a href="#" data-target="#tab-credit" data-toggle="tab">信用信息 <!-- <span class="label label-badge label-success pull-right">4</span> --></a>
                 </li>
                 <li class="">
                     <?php $out = $cards = []; if ($contact) {
                             $contacts = json_decode($contact->contacts,true);
+                            if (isset($contacts['contact'])) {
+                              $contacts = array($contacts);
+                            }
                             foreach ($contacts as $v) {
                               $v = array_filter($v);
                               unset($v['source'],$v['state']);
@@ -92,47 +95,161 @@
             <div class="tab-content content">
               <div class="tab-pane fade active in" id="tab-buiness">
 
-                <div class="panel  panel-primary">
-                  <div class="panel-heading">
-                  <i class="icon icon-list-alt" style="color:#fff;"></i>
-                    &nbsp; 营业执照信息
-                  </div>
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-md-2 text-right">注册号/统一社会信用代码:</div>
-                      <div class="col-md-4 text-left"><?php echo $company->creditno?$company->creditno:$company->regno;?></div>
-                      <div class="col-md-2 text-right">法人代表:</div>
-                      <div class="col-md-4 text-left"><?php echo $company->opername;?></div>
+            <div class="panel">
+
+            <div class="panel-head title-lg" id="managerInfo" style="margin-top: 10px;">
+              <i class="icon icon-bang-lg bg-success"></i>营业执照信息
+            </div>
+            <div class="panel-body manager-info">
+              <div class="row">
+                  <div class="col-md-2 text-right">注册号/统一社会信用代码:</div>
+                  <div class="col-md-4 text-left"><?php echo $company->creditno?$company->creditno:$company->regno;?></div>
+                  <div class="col-md-2 text-right">法人代表:</div>
+                  <div class="col-md-4 text-left"><?php echo $company->opername;?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">经营状态:</div>
+                  <div class="col-md-4 text-left"><?php echo $company->status;?></div>
+                  <div class="col-md-2 text-right">公司类型:</div>
+                  <div class="col-md-4 text-left"><?php echo $company->econkind;?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">注册资本:</div>
+                  <div class="col-md-4 text-left"><?php echo $company->registcapi;?></div>
+                  <div class="col-md-2 text-right">营业期限:</div>
+                  <div class="col-md-4 text-left"><?php
+                  $start = $company->termstart?date('Y-m-d',$company->termstart).' -- ':'';
+                  $end = $start && $company->termend?date('Y-m-d',$company->termend):' ';
+                  echo $start.$end;?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">登记机关:</div>
+                  <div class="col-md-8 text-left"><?php echo $company->belongorg;?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">企业地址:</div>
+                  <div class="col-md-8 text-left"><?php echo $company->address;?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">经营范围:</div>
+                  <div class="col-md-8 text-left"><?php echo $company->scope;?></div>
+                </div>
+              </div>
+
+
+
+            <!--主要成员-->
+            <div class="panel-head title-lg" id="personInfo">
+                <i class="icon icon-bang-lg bg-success"></i>主要成员
+            </div>
+            <div class="panel-body person-info">
+
+                <div class="example-cards example">
+                  <div class="cards cards-borderless">
+                    <?php $employs = json_decode($company->employs,true);
+                          if ($employs) {
+                            foreach ($employs as $v) {
+                    ?>
+                    <div class="col-md-4 col-sm-6 col-lg-3" style="margin-bottom: 15px;">
+                      <div class="card item" style="height: 100px;">
+                        <p><i class="icon-user icon-gray"></i> &nbsp; <span class="text"><?php echo $v['name'];?></span></p>
+                        <p><i class="icon-tag icon-gray"></i> &nbsp; <span class="text"><?php echo $v['job']?$v['job']:'--';?></span></p>
+                      </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-2 text-right">经营状态:</div>
-                      <div class="col-md-4 text-left"><?php echo $company->status;?></div>
-                      <div class="col-md-2 text-right">公司类型:</div>
-                      <div class="col-md-4 text-left"><?php echo $company->econkind;?></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 text-right">注册资本:</div>
-                      <div class="col-md-4 text-left"><?php echo $company->registcapi;?></div>
-                      <div class="col-md-2 text-right">营业期限:</div>
-                      <div class="col-md-4 text-left"><?php
-                      $start = $company->termstart?date('Y-m-d',$company->termstart).' -- ':'';
-                      $end = $start && $company->termend?date('Y-m-d',$company->termend):' ';
-                      echo $start.$end;?></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 text-right">登记机关:</div>
-                      <div class="col-md-8 text-left"><?php echo $company->belongorg;?></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 text-right">企业地址:</div>
-                      <div class="col-md-8 text-left"><?php echo $company->address;?></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 text-right">经营范围:</div>
-                      <div class="col-md-8 text-left"><?php echo $company->scope;?></div>
-                    </div>
+                    <?php }}else{ ?>
+                        <div style="padding-left: 25px;">暂无数据</div>
+                    <?php } ?>
                   </div>
                 </div>
+            </div>
+
+            <!--股东信息-->
+            <div class="panel-head title-lg" id="partnerInfo">
+                <i class="icon icon-bang-lg bg-success"></i>股东信息
+            </div>
+            <div class="panel-body partner-info">
+                <div class="example-cards">
+                <?php $partners = json_decode($company->partners,true);?>
+                  <div class="<?php echo $partners?'cards':'';?> cards-borderless">
+                    <?php if ($partners) {
+                            foreach ($partners as $v) {
+                    ?>
+                    <div class="col-md-4 col-sm-6 col-lg-4" style="margin-bottom: 15px;">
+                      <div class="card item" style="height: 180px;">
+                        <p>
+                          <span class="text" style="font-size: 15px;"><strong><?php echo $v['stockname'];?></strong></span>&nbsp;
+                          <span class="label label-info"><?php echo $v['stocktype'];?></span>
+                        </p>
+                        <hr>
+                        <p><span class="text col-md-6">认缴出资：<?php echo $v['shouldcapi']?$v['shouldcapi']:'--';?></span><span class="text col-md-6">认缴时间：<?php echo $v['shoulddate']?date('Y-m-d',$v['shoulddate']):'--';?></span></p>
+                        <p><span class="text col-md-6">实缴出资：<?php echo $v['realcapi']?$v['realcapi']:'--';?></span><span class="text col-md-6">实缴时间：<?php echo $v['realdate']?date('Y-m-d',$v['realdate']):'--';?></span></p>
+                      </div>
+                    </div>
+                    <?php }}else{ ?>
+                        <div style="padding-left: 25px;">暂无数据</div>
+                    <?php } ?>
+                  </div>
+                </div>
+            </div>
+
+            <!--分支机构-->
+            <div class="panel-head title-lg" id="branchInfo">
+                <i class="icon icon-bang-lg bg-success"></i>分支机构
+            </div>
+            <div class="panel-body branch-info">
+              <?php $branches = json_decode($company->branches,true);
+                    if ($branches) {
+                      foreach ($branches as $v) {
+              ?>
+              <div class="col-md-6">
+                <div class="content alert alert-primary">
+                  <?php if (isset($v['comid']) && !empty($v['comid'])) {?>
+                        <a href="/company/detail/<?php echo $v['comid'];?>.html" target="_blank"><?php echo $v['name'];?></a>
+                  <?php }else{?>
+                    <?php echo $v['name'];}?>
+                </div>
+              </div>
+              <?php }}else{ ?>
+                  <div style="padding-left: 25px;">暂无数据</div>
+              <?php } ?>
+            </div>
+
+
+            <!--变更记录-->
+            <div class="panel-head title-lg" id="changeInfo">
+                <i class="icon icon-bang-lg bg-success"></i>变更记录
+            </div>
+            <div class="panel-body change-info">
+                <?php $changerecord = json_decode($company->changerecord,true);
+                    if ($changerecord) {
+                      foreach ($changerecord as $k=>$v) {
+                ?>
+                <?php if ($k !=0) {?>
+                  <hr>
+                <?php }?>
+                <div class="row">
+                  <div class="col-md-2 text-right">变更事项:</div>
+                  <div class="col-md-4 text-left"><?php echo $v['projectname'];?></div>
+                  <div class="col-md-2 text-right">变更日期:</div>
+                  <div class="col-md-4 text-left"><?php echo $v['changedate']?date('Y-m-d',$v['changedate']):'--';?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">变更前:</div>
+                  <div class="col-md-8 text-left"><?php echo $v['beforecontent'];?></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 text-right">变更后:</div>
+                  <div class="col-md-8 text-left"><?php echo $v['aftercontent'];?></div>
+                </div>
+              <?php }}else{ ?>
+                <div style="padding-left: 25px;">暂无数据</div>
+              <?php } ?>
+            </div>
+
+        </div>
+
+
+
 
 
               </div>
@@ -147,7 +264,7 @@
                     ?>
                     <div class="col-md-4 col-sm-6 col-lg-3" style="margin-bottom: 25px;">
                       <div class="card item">
-                        <?php if (isset($v['contact']) && !empty($v['contact'])) {?>
+                        <?php if (isset($v['contact'])) {?>
                         <p><i class="icon-user icon-gray"></i> &nbsp; <span class="text"><?php echo $v['contact'];?></span></p>
                         <?php }?>
                         <?php if (isset($v['depart']) || isset($v['position'])) {?>
@@ -169,7 +286,14 @@
                         <p><i class="icon-map-marker icon-gray"></i> &nbsp; <span class="text"><?php echo $v['address'];?></span></p>
                         <?php }?>
                         <?php if (isset($v['website']) && !empty($v['website'])) {?>
-                        <p><i class="icon-ie icon-gray"></i> &nbsp; <a href="<?php echo $v['website'];?>"><?php echo $v['website'];?></a></p>
+                        <p><i class="icon-ie icon-gray"></i> &nbsp; <a href="<?php echo $v['website'];?>" target="_blank"><?php echo $v['website'];?></a></p>
+                        <?php }?>
+
+                        <?php if (isset($v['opername'])) {?>
+                        <p><i class="icon-group icon-gray"></i> &nbsp; <span class="text"><?php echo $v['opername'];?></span></p>
+                        <?php }?>
+                        <?php if (isset($v['zip']) && !empty($v['zip'])) {?>
+                        <p><i class="icon-envelope icon-gray"></i> &nbsp;<?php echo $v['zip'];?></p>
                         <?php }?>
                       </div>
                     </div>

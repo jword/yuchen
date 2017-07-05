@@ -51,7 +51,7 @@ class Index extends \think\Controller
             $field = $cfiled = '*';
         } else {
             $cfiled = 'comname,CAST(contacts as CHAR) as contacts';
-            $field  = 'id, hashid, creditno,regno,econkind,termstart,termend,belongorg,startdate,comname,status ,CAST(contactinfo as CHAR) as contactinfo, address, opername, registcapi, scope';
+            $field  = 'id, hashid, creditno,regno,econkind,termstart,termend,belongorg,startdate,comname,status ,CAST(contactinfo as CHAR) as contactinfo, address, opername, registcapi, scope,CAST(employs as CHAR) as employs,CAST(partners as CHAR) as partners,CAST(branches as CHAR) as branches,CAST(changerecord as CHAR) as changerecord';
         }
         //获取企业数据
         $company = Cominfo::where('hashid', $hashid)->field($field)->find();
