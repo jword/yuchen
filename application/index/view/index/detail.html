@@ -143,11 +143,10 @@
                 <i class="icon icon-bang-lg bg-success"></i>主要成员
             </div>
             <div class="panel-body person-info">
-
-                <div class="example-cards example">
-                  <div class="cards cards-borderless">
-                    <?php $employs = json_decode($company->employs,true);
-                          if ($employs) {
+                <?php $employs = json_decode($company->employs,true);?>
+                <div class="example-cards">
+                  <div class="<?php echo $employs?'cards':'';?> cards-borderless">
+                    <?php if ($employs) {
                             foreach ($employs as $v) {
                     ?>
                     <div class="col-md-4 col-sm-6 col-lg-3" style="margin-bottom: 15px;">
