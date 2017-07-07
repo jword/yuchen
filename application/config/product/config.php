@@ -234,4 +234,8 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    'company'                => [
+        'email' => 'farentang@163.com',
+    ],
 ];
