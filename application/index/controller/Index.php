@@ -20,7 +20,7 @@ class Index extends \think\Controller
             ->field($field)
             ->select();
         $this->assign('title', '专业的法人信息检索平台');
-        $this->assign('keywords', '法人堂，法人，企业法人，工商信息查询，企业联系方式');
+        $this->assign('keywords', '法人堂,法人,企业法人,工商信息查询,企业联系方式');
         $this->assign('description', '法人堂是一个专业的企业法人信息检索平台，致力于提供简单、可靠、真实的法人信息检索查询服务。');
         $this->assign('coms', $coms);
         $this->assign('modeout', true);
@@ -43,7 +43,7 @@ class Index extends \think\Controller
         $list = Cominfo::whereLike('comname', $keyword . '%')->field($field)->paginate(10, false, $query);
         // 模板变量赋值
         $this->assign('title', $keyword);
-        $this->assign('keywords', $keyword);
+        $this->assign('keywords', $keyword . ',' . $keyword . '工商信息,法人堂');
         $this->assign('description', '法人堂是一个专业的企业法人信息检索平台，致力于提供简单、可靠、真实的法人信息检索服务。');
         $this->assign('keyword', $keyword);
         $this->assign('list', $list);
@@ -68,7 +68,7 @@ class Index extends \think\Controller
         $contact = new Contact();
         $contact = $contact->where('comname', $company->comname)->field($cfiled)->find();
         $this->assign('title', $company->comname);
-        $this->assign('keywords', $company->comname . '联系方式，' . $company->opername . '联系方式，' . $company->comname . '怎么样，' . $company->comname . '工商信息');
+        $this->assign('keywords', $company->comname . '联系方式,' . $company->opername . '联系方式,' . $company->comname . '怎么样,' . $company->comname . '工商信息');
         $this->assign('description', '法人堂为您提供最新、最全的' . $company->comname . '工商信息、信用信息、联系方式、专利信息、诉讼信息、股东信息、法人信息、企业新闻等。');
         $this->assign('company', $company);
         $this->assign('contact', $contact);
@@ -78,7 +78,7 @@ class Index extends \think\Controller
     public function about()
     {
         $this->assign('title', '关于法人堂');
-        $this->assign('keywords', '法人堂，法人堂团队，法人堂联系方式，法人堂地址，河南斯沃琪网络科技有限公司');
+        $this->assign('keywords', '法人堂,法人堂团队,法人堂联系方式,法人堂地址,河南斯沃琪网络科技有限公司');
         $this->assign('description', '法人堂是一个专业的企业法人信息检索平台，致力于提供简单、可靠、真实的法人信息检索查询服务。');
         return view('about');
     }
