@@ -1,3 +1,20 @@
 <?php include APP_PATH.'index/view/partials/user_header.html';?>
+<main class="bare-main">
+  <div class="authform">
+    <h1>忘记密码</h1>
+    <div class="subtitle text-center">
+      已经有账号？ <a href="/user/login">立即登录</a>
+    </div>
 
+    <form action="/user/login" method="post">
+      <div class="form-group fieldset-row" id="email_container">
+        <i class="icons icon-envelope-alt" style="color: rgb(149, 169, 195);" for="email"></i>
+        <input class="fieldset-input" id="email" name="email" type="password" placeholder="邮箱">
+      </div>
+      <div class="btn-panel">
+        <button class="btn btn-main" type="submit">下一步</button>
+      </div>
+    </form>
+  </div>
+</main>
 <?php include APP_PATH.'index/view/partials/user_footer.html';?>
